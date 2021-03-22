@@ -158,8 +158,12 @@ skillnamelist["normalSanteM"] = {
 }
 
 # Although stamina can be handled normally at present, if ~ star skill is to be treated as a separate frame, it is necessary to make it different skill
-skillnamelist["normalKonshinLL"] = {
+skillnamelist["normalKonshinLLL"] = {
     u"呪蝕の渾身": "dark"
+}
+
+skillnamelist["normalKonshinLL"] = {
+    u"霧氷の渾身II": "water"
 }
 
 skillnamelist["normalKonshinL"] = {

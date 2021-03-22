@@ -3016,8 +3016,13 @@ var multiLangData = {
         "ja": "通常渾身(大)",
         "zh": "通常渾身(大)",
     },
-    "通常渾身(特大)": {
+    "通常渾身II": {
         "en": "Normal Stamina (LL)",
+        "ja": "通常渾身II",
+        "zh": "通常渾身II",
+    },
+    "通常渾身(特大)": {
+        "en": "Normal Stamina (LLL)",
         "ja": "通常渾身(特大)",
         "zh": "通常渾身(特大)",
     },

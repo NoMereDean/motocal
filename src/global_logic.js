@@ -1386,8 +1386,15 @@ module.exports.calcHaisuiValue = function (haisuiType, haisuiAmount, haisuiSLv, 
                 } else {
                     return Math.pow(100.0 * remainHP / (56.4 - (15 + (0.4 * (haisuiSLv - 15)))), 2.9) + 2.1;
                 }
+	    } else if (haisuiAmount === "LL") {
+		    // Normal Stamina (LL)
+		    if (haisuiSLv < 15) {
+			    return Math.pow(100.0 * remainHP / (53.7 - haisuiSLv), 2.9) + 2.1;
+		    } else {
+			    return Math.pow(100.0 * remainHP / (53.7 - (15 + (0.4 * (haisuiSLv - 15)))), 2.9) + 2.1;
+		    }
             } else {
-                // Normal Stamina (LL)
+                // Normal Stamina (LLL)
                 if (haisuiSLv < 15) {
                     // No Data
                     return Math.pow(100.0 * remainHP / (50.4 - haisuiSLv), 2.9) + 2.1;
