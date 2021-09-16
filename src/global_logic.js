@@ -351,16 +351,19 @@ module.exports.calcCriticalArray = function (_normalCritical, _normalCritical2, 
     _magnaCritical = _magnaCritical == undefined ? 0 : _magnaCritical;
     normalOtherCritical = normalOtherCritical.filter((val) => val != undefined);
 
-    var magnaCritical = 0.01 * _magnaCritical * summon["magna"];
-    if (magnaCritical > 1.0) {
-        probability.push(1.0);
-        damageRatio.push(0.5);
-    } else if (magnaCritical > 0.0) {
-        probability.push(magnaCritical);
-        damageRatio.push(0.5);
-    }
+	//var magnaCritical = 1;
+	//probability.push(0);
+	//damageRatio.push(0.5);
+    //var magnaCritical = 0.01 * (_magnaCritical * summon["magna"] + _normalCritical2);
+    //if (magnaCritical > 1.0) {
+    //    probability.push(1.0);
+    //    damageRatio.push(0.5);
+    //} else if (magnaCritical > 0.0) {
+    //    probability.push(magnaCritical);
+    //    damageRatio.push(0.5);
+    //}
 
-    var normalCritical = 0.01 * (_normalCritical * summon["zeus"] + _normalCritical2);
+    var normalCritical = 0.01 * (_magnaCritical * summon["magna"] + _normalCritical * summon["zeus"] + _normalCritical2);
     if (normalCritical > 1.0) {
         probability.push(1.0);
         damageRatio.push(0.5);
@@ -368,6 +371,16 @@ module.exports.calcCriticalArray = function (_normalCritical, _normalCritical2, 
         probability.push(normalCritical);
         damageRatio.push(0.5);
     }
+
+	//var gridCritical = [];
+	//var gridCritical = 0.01 * (_magnaCritical * summon["magna"] + normalCritical * summon["zeus"] + _normalCritical2);
+	//if (gridCritical > 1.0) {
+	//	probability.push(1.0);
+	//	damageRatio.push(0.5);
+	//} else if (gridCritical > 0.0) {
+	//	probability.push(gridCritical);
+	//	damageRatio.push(0.5);
+	//}
 
     // Normal other critical skill array is passed in the form of [probability 1, probability 2, probability 3, ...]
     // Critical for LB and Support abilities
