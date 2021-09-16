@@ -798,12 +798,12 @@ module.exports.calcBasedOneSummon = function (summonind, prof, buff, totals) {
         }
         // Mystery damage upper limit UP = whole buff + individual buff + skill + damage upper limit UP minutes
         // The upper limit of skill of mystery damage is 30%
-        var ougiDamageLimitByExceed = Math.min(0.30, totals[key]["exceedOugiDamageLimit"]);
-        var ougiDamageLimitByNormal = Math.min(0.30, totals[key]["normalOugiDamageLimit"] * totalSummon["zeus"]);
-        var ougiDamageLimitByMagna = Math.min(0.30, totals[key]["magnaOugiDamageLimit"] * totalSummon["magna"]);
-        var ougiDamageLimit = Math.min(0.60, (ougiDamageLimitByMagna + ougiDamageLimitByNormal + ougiDamageLimitByExceed));
+        // var ougiDamageLimitByExceed = Math.min(0.30, totals[key]["exceedOugiDamageLimit"]);
+        // var ougiDamageLimitByNormal = Math.min(0.30, totals[key]["normalOugiDamageLimit"] * totalSummon["zeus"]);
+        // var ougiDamageLimitByMagna = Math.min(0.30, totals[key]["magnaOugiDamageLimit"] * totalSummon["magna"]);
+        var ougiDamageLimit = Math.min(0.75, (totals[key]["exceedOugiDamageLimit"]) + totals[key]["normalOugiDamageLimit"] * totalSummon["zeus"] + totals[key]["magnaOugiDamageLimit"] * totalSummon["magna"] + Math.min(0.15, totals[key]["omegaOugiDamageLimit"]));
         ougiDamageLimit += Math.min(0.20, totals[key]["ougiDamageLimit"] + totals[key]["cosmosNormalDamageLimit"]);
-        ougiDamageLimit += Math.min(0.15, totals[key]["omegaOugiDamageLimit"]);
+        // ougiDamageLimit += Math.min(0.15, totals[key]["omegaOugiDamageLimit"]);
         ougiDamageLimit += buff["ougiDamageLimit"] + totals[key]["ougiDamageLimitBuff"];
         ougiDamageLimit += totals[key]["caimDamageLimit"];
         ougiDamageLimit += 0.01 * totalSummon["damageLimit"];
