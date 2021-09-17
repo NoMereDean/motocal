@@ -548,6 +548,7 @@ module.exports.calcBasedOneSummon = function (summonind, prof, buff, totals) {
         normalCoeff += 0.01 * totals[key]["normalOther"];
         normalCoeff += 0.01 * totals[key]["bahaAT"];
         normalCoeff += 0.01 * totals[key]["omegaNormal"];
+        // normalCoeff += 0.01 * totals[key]["opusyuuwaku"];
         normalCoeff += totalSummon["chara"];
         normalCoeff += buff["normal"];
         normalCoeff += totals[key]["normalBuff"];
@@ -822,10 +823,11 @@ module.exports.calcBasedOneSummon = function (summonind, prof, buff, totals) {
         // Mystery damage = magnification * (1 + mystery damage buff frame) * (1 + mystery damage rise skill frame)
         // Save only the coefficient part (100% + delta of delta) for common processing
 
-        var ougiDamageByCosmosAT = Math.min(20, totals[key]["cosmosAT"]);
-        var ougiDamageByNormal = Math.min(100, totals[key]["normalOugiDamage"] * totalSummon["zeus"] + totals[key]["normalOtherOugiDamage"]);
-        var ougiDamageByMagna = Math.min(100, totals[key]["magnaOugiDamage"] * totalSummon["magna"]);
-        var ougiDamageSkill = 0.01 * (ougiDamageByCosmosAT + ougiDamageByMagna + ougiDamageByNormal);
+        // var ougiDamageByCosmosAT = Math.min(20, totals[key]["cosmosAT"]);
+        // var ougiDamageByNormal = Math.min(100, totals[key]["normalOugiDamage"] * totalSummon["zeus"] + totals[key]["normalOtherOugiDamage"]);
+        // var ougiDamageByMagna = Math.min(100, totals[key]["magnaOugiDamage"] * totalSummon["magna"]);
+        // var ougiDamageSkill = 0.01 * (ougiDamageByCosmosAT + ougiDamageByMagna + ougiDamageByNormal);
+        var ougiDamageSkill = 0.01 * Math.min(100, totals[key]["normalOugiDamage"] * totalSummon["zeus"] + totals[key]["normalOtherOugiDamage"] + totals[key]["magnaOugiDamage"] * totalSummon["magna"]);
 
         var ougiDamageExceptSkill = totals[key]["ougiDamageBuff"] + totalSummon["ougiDamage"] + buff['ougiDamage'];
         ougiDamageExceptSkill += 0.01 * totals[key]["LB"]["OugiDamage"];
@@ -2110,6 +2112,15 @@ module.exports.addSkilldataToTotals = function (totals, comb, arml, buff) {
                     } else if (stype == 'rigaiBishojo') {
                         // skill is all allies not restricted to element
                         totals[key]["criticalDamageLimit"] += comb[i] * 0.05;
+                    } else if (stype == "opusyuuwaku") {
+                        totals[key]["normalOther"] += 50;
+                        totals[key]["damageLimitBuff"] += 0.1;
+                        totals[key]["DABuff"] += 0.35;
+                        totals[key]["TABuff"] += 0.2;
+                        buff['ougiDamage'] += 0.2;
+                    } else if (stype == "opuskinki") {
+                        totals[key]["normalOtherOugiDamage"] += 100;
+                        totals[key]["exceedOugiDamageLimit"] += 0.3;
                     } else if (stype == 'one_night_party') {
                         if (favCharaContains(['axe'], totals[key])) {
                             totals[key]["normalOther"] += comb[i] * skillAmounts["normal"][amount][slv - 1];
@@ -2681,6 +2692,8 @@ module.exports.getInitialTotals = function (prof, chara, summon) {
                 akashaHP: 0,
                 opusnormalElement: 0,
                 opusmagnaElement: 0,
+                opusyuuwaku: 0,
+                opuskinki: 0,
                 dracoATK: 0,
                 normalElement: 0,
                 magnaElement: 0,
@@ -2882,6 +2895,8 @@ module.exports.getInitialTotals = function (prof, chara, summon) {
                 akashaHP: 0,
                 opusnormalElement: 0,
                 opusmagnaElement: 0,
+                opusyuuwaku: 0,
+                opuskinki: 0,
                 dracoATK: 0,
                 normalElement: 0,
                 magnaElement: 0,

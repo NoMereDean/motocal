@@ -1044,6 +1044,8 @@ var skilltypes = {
     "opus-delta": {name: "ペンデュラム[Δ]", type: "opusKey", amount: "L"},
     "opus-normalElement": {name: "通常進境(大)(最大時)", type: "opusnormalElement", amount: "L"},
     "opus-magnaElement": {name: "マグナ進境(大)(最大時)", type: "opusmagnaElement", amount: "L"},
+    "opus-yuuwaku": {name: "誘惑のチェイン(4ターン以内)", type: "opusyuuwaku", amount: "L"},
+    "opus-kinki": {name: "禁忌のチェイン", type: "opuskinki", amount: "L"},
     "dracoATK": {name: "竜進境(最大時)", type: "dracoATK", amount: 0.001},
     "normalElementM": {name: "通常進境(中)(最大時)", type: "normalElement", amount: "M"},
     "normalElementL": {name: "通常進境(大)(最大時)", type: "normalElement", amount: "L"},
@@ -1202,6 +1204,8 @@ var opusNormalWeaponSkill2 = {
     "normalHaisuiL": {name: "通常背水(大)"},
     "normalSanteM": {name: "通常三手(中)"},
     "opus-normalElement": {name: "通常進境(大)(最大時)"},
+    "opus-yuuwaku": {name: "誘惑のチェイン(4ターン以内)"},
+    "opus-kinki": {name: "禁忌のチェイン"},
 };
 
 var opusMagnaWeaponSkill2 = {
@@ -1210,6 +1214,8 @@ var opusMagnaWeaponSkill2 = {
     "magnaHaisuiL": {name: "マグナ背水(大)"},
     "magnaSanteM": {name: "マグナ三手(中)"},
     "opus-magnaElement": {name: "マグナ進境(大)(最大時)"},
+    "opus-yuuwaku": {name: "誘惑のチェイン(4ターン以内)"},
+    "opus-kinki": {name: "禁忌のチェイン"},
 };
 
 var dracoWeaponSkill2 = {
@@ -2065,11 +2071,11 @@ var skillAmounts = {
     },
     // normal Glory(英傑) chain up
     "normalEiketsu": {
-        "L": [3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 12.5, 13.0, 13.5, 14.0, 14.5, 14.5, 14.5, 14.5, 14.5, 14.5]
+        "L": [3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 12.5, 13.0, 13.5, 14.0, 14.5, 14.9, 15.3, 15.7, 16.1, 16.5]
     },
     // normal Glory(英傑) limit up
     "normalEiketsuDamageLimit": {
-        "L": [1.2, 1.6, 2.0, 2.4, 2.8, 3.2, 3.6, 4.0, 4.4, 4.8, 5.2, 5.6, 6.0, 6.4, 6.8, 6.8, 6.8, 6.8, 6.8, 6.8]
+        "L": [1.2, 1.6, 2.0, 2.4, 2.8, 3.2, 3.6, 4.0, 4.4, 4.8, 5.2, 5.6, 6.0, 6.4, 6.8, 7.0, 7.2, 7.4, 7.6, 7.8]
     },
     // magna Sentence(方陣秘奥/方陣必殺(奥義ダメージ部分))
     "magnaHiou": {
@@ -2123,7 +2129,13 @@ var skillAmounts = {
         //per turn increase, maximum 10 turns
         "M": [0.043, 0.046, 0.049, 0.052, 0.055, 0.058, 0.061, 0.064, 0.067, 0.070, 0.072, 0.074, 0.076, 0.078, 0.080, 0.080, 0.080, 0.080, 0.080, 0.080],
         "L": [0.055, 0.060, 0.065, 0.070, 0.075, 0.080, 0.085, 0.090, 0.095, 0.100, 0.105, 0.110, 0.115, 0.120, 0.125, 0.130, 0.135, 0.140, 0.145, 0.150],
-    }
+    },
+    "opusyuuwaku": {
+        "L": [50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50],
+    },
+    "opuskinki": {
+        "L": [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100],
+    },
 };
 
 // chara support

@@ -4989,6 +4989,16 @@ var multiLangData = {
         "ja": "2019/08/05: 旧エピックウェポン4凸対応。フィールド効果「死ト愛ノ世界(ニーア)」追加。背水グラフのホワイトアウト修正。バハコスモススキルの表記変更。武器とキャラ追加。",
         "zh": "2019/08/05: Added old Epic Weapons ★4, World of Death and Love (Nier). Fix graf/chart whiteout. Changed Baha/Cosmos skills notation. Added new weapons and characters.",
     },
+    "誘惑のチェイン(4ターン以内)": {
+        "en": "Chain of Temptation (First four turns)",
+        "ja": "誘惑のチェイン(4ターン以内)",
+        "zh": "Chain of Temptation (First four turns)",
+    },
+    "禁忌のチェイン": {
+        "en": "Chain of Forbiddance",
+        "ja": "禁忌のチェイン",
+        "zh": "Chain of Forbiddance",
+    },
 };
 
 // Language settings

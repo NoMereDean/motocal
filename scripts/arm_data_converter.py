@@ -1218,6 +1218,15 @@ skillnamelist["astralclaw"] = {
     u"アストラル・クロー": "dark"
 }
 
+# New Opus chains
+skillnamelist["opusyuuwaku"] = {
+    u"誘惑のチェイン(4ターン以内)": "fire"
+}
+
+skillnamelist["opuskinki"] = {
+    u"禁忌のチェイン": "fire"
+}
+
 # Character specific weapon
 skillnamelist["tsuranukiKiba"] = {u"貫きの牙": "fire"}
 skillnamelist["washiouKekkai"] = {u"鷲王の結界": "fire"}
